@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: #ffb6c1;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BIG floating hearts */
+.floating-heart {
+    position: absolute;
+    font-size: 42px;   /* BIG hearts */
+    opacity: 0.2;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(120vh);
+    }
+    to {
+        transform: translateY(-20vh);
+    }
+}
+
+/* Layout */
+.wrapper {
+    text-align: center;
+    animation: fadeIn 0.8s ease-in;
+    max-width: 420px;
+    width: 90%;
+}
+
+/* Titles */
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #4a0e4e;
+    margin: 10px 0;
+}
+
+.main-title span {
+    color: #e91e63;
+}
+
+.sub-text {
+    font-size: 14px;
+    color: #4a0e4e;
+}
+
+/* Buttons */
+.btn-group {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#yes-btn {
+    background-color: #e91e63;
+    color: white;
+    border: 2px solid white;
+}
+
+#no-btn {
+    background-color: #fef1f2;
+    color: #333;
+    position: fixed; /* IMPORTANT: full screen floating */
+    transition: all 0.3s ease;
+}
+
+.hint-text {
+    margin-top: 18px;
+    font-size: 12px;
+    color: #4a0e4e;
+}
+
+/* Success Page */
+.hidden {
+    display: none;
+}
+
+.yay-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.2rem;
+    color: #4a0e4e;
+}
+
+.image-card {
+    background: #e6c39e;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.image-card img {
+    width: 100%;
+    border-radius: 14px;
+}
+
+.message-card {
+    background: #fff9f0;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
