@@ -1,53 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💖</title>
 
-    <!-- OLD FONT (as requested) -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #ffb6c1;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+
+  /* CENTER WITHOUT JUMP */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FLOATING HEARTS */
+#floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-heart {
+  position: absolute;
+  opacity: 0.25;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(120vh); }
+  to { transform: translateY(-20vh); }
+}
+
+/* WRAPPER */
+.wrapper {
+  position: relative;          /* 🔑 prevents load jump */
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  z-index: 2;
+  animation: fadeIn 0.6s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.main-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.8rem;
+  color: #4a0e4e;
+}
+
+.main-title span {
+  color: #e91e63;
+}
+
+.sub-text {
+  font-size: 14px;
+  color: #4a0e4e;
+}
+
+/* BUTTON AREA */
+.btn-group {
+  margin-top: 40px;
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+/* BUTTONS */
+button {
+  padding: 12px 35px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  position: absolute;
+  transition: left 0.25s ease, top 0.25s ease;
+}
+
+#yes-btn {
+  background: #e91e63;
+  color: white;
+  border: 2px solid white;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#no-btn {
+  background: #fef1f2;
+  color: #333;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+}
+
+/* PAGE 2 */
+.yay-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.2rem;
+  color: #4a0e4e;
+}
+
+.image-card {
+  background: #e6c39e;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.image-card img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.message-card {
+  background: #fff9f0;
+  padding: 25px;
+  border-radius: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
 </head>
+
 <body>
 
-<!-- Floating hearts -->
 <div id="floating-hearts"></div>
 
 <!-- PAGE 1 -->
 <div id="question-page" class="wrapper">
-    <div class="heart-main">💗</div>
+  <h1 class="main-title">Will you be my<br><span>Valentine?</span></h1>
+  <p class="sub-text">Choose wisely… 💕</p>
 
-    <h1 class="main-title">Will you be my<br><span>Valentine?</span></h1>
-    <p class="sub-text">Choose wisely… 💕</p>
+  <div class="btn-group">
+    <button id="yes-btn">Yes! ✨</button>
+    <button id="no-btn">No 🥺</button>
+  </div>
 
-    <div class="btn-group">
-        <button id="yes-btn">Yes! ✨</button>
-        <button id="no-btn" tabindex="-1">No 🥺</button>
-    </div>
-
-    <p class="hint-text">Hint: The “No” button is a bit shy… 😉</p>
+  <p class="sub-text">Hint: The “No” button is scared 😉</p>
 </div>
 
 <!-- PAGE 2 -->
 <div id="success-page" class="wrapper hidden">
-    <h1 class="yay-text">Yay! 🎉<br>Good Choice!</h1>
+  <h1 class="yay-text">Yay! 🎉<br>Good Choice!</h1>
 
-    <div class="image-card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MmJhdXQ3Ymt4dDEycWg0aWxleDY4cXRjbjZnMHJybHl0d2U5NzIzcyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8dwMScO8qOvSFn0AB6/giphy.gif" alt="Good Choice">
-    </div>
+  <div class="image-card">
+    <img src="https://media.giphy.com/media/8dwMScO8qOvSFn0AB6/giphy.gif">
+  </div>
 
-    <div class="message-card">
-        <p>
-            I knew you'd say yes! 💕<br><br>
-            You've made me the happiest person in the world.<br>
-            Can't wait to celebrate this special day with you 💖
-        </p>
-        <div class="mini-hearts">💖 💖 💖</div>
-    </div>
+  <div class="message-card">
+    <p>I knew you'd say yes 💕<br><br>Happy Valentine’s 💖</p>
+  </div>
+
+  <audio id="love-song" src="until-i-found-you.webm" loop></audio>
 </div>
 
-<script src="script.js"></script>
+<script>
+const noBtn = document.getElementById("no-btn");
+const yesBtn = document.getElementById("yes-btn");
+const questionPage = document.getElementById("question-page");
+const successPage = document.getElementById("success-page");
+const song = document.getElementById("love-song");
+
+/* HEARTS – INSTANT START */
+const heartContainer = document.getElementById("floating-hearts");
+for (let i = 0; i < 30; i++) {
+  const heart = document.createElement("div");
+  heart.className = "floating-heart";
+  heart.innerHTML = "❤";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = 35 + Math.random() * 30 + "px";
+  heart.style.animationDuration = 6 + Math.random() * 6 + "s";
+  heart.style.animationDelay = -Math.random() * 10 + "s";
+  heartContainer.appendChild(heart);
+}
+
+/* NO BUTTON – SAFE, AGGRESSIVE, CONTAINER-BOUND */
+function moveNoButton() {
+  const container = document.querySelector(".btn-group");
+  const c = container.getBoundingClientRect();
+  const noRect = noBtn.getBoundingClientRect();
+  const yesRect = yesBtn.getBoundingClientRect();
+
+  const padding = 10;
+  let x, y, safe = false;
+
+  while (!safe) {
+    // wider movement inside panel
+    x = Math.random() * (c.width - noRect.width - padding * 2) + padding;
+    y = Math.random() * (c.height - noRect.height - padding * 2) + padding;
+
+    // prevent overlap with YES
+    const overlap =
+      x + noRect.width > (yesRect.left - c.left) &&
+      x < (yesRect.right - c.left) &&
+      y + noRect.height > (yesRect.top - c.top) &&
+      y < (yesRect.bottom - c.top);
+
+    if (!overlap) safe = true;
+
+  }
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+
+noBtn.addEventListener("mouseenter", moveNoButton);
+noBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  moveNoButton();
+});
+
+/* YES CLICK */
+yesBtn.addEventListener("click", () => {
+  history.pushState({ page: "success" }, "", "");
+
+  questionPage.classList.add("hidden");
+  successPage.classList.remove("hidden");
+
+  song.currentTime = 0;
+  song.volume = 0.8;
+  song.play();
+});
+
+/* BACK BUTTON */
+window.addEventListener("popstate", () => {
+  song.pause();
+  song.currentTime = 0;
+
+  successPage.classList.add("hidden");
+  questionPage.classList.remove("hidden");
+});
+
+/* STOP MUSIC ON TAB CHANGE */
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    song.pause();
+    song.currentTime = 0;
+  }
+});
+</script>
+
 </body>
 </html>

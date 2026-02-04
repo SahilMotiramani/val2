@@ -8,42 +8,38 @@ body {
     background: #ffb6c1;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    
+    }
 
-/* BIG floating hearts */
+/* Floating hearts */
 .floating-heart {
     position: absolute;
-    font-size: 42px;   /* BIG hearts */
-    opacity: 0.2;
+    font-size: 42px;
+    opacity: 0.25;
     animation: floatUp linear infinite;
 }
 
 @keyframes floatUp {
-    from {
-        transform: translateY(120vh);
-    }
-    to {
-        transform: translateY(-20vh);
-    }
+    from { transform: translateY(120vh); }
+    to { transform: translateY(-20vh); }
 }
 
-/* Layout */
 .wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    animation: fadeIn 0.8s ease-in;
     max-width: 420px;
     width: 90%;
+    animation: fadeIn 0.8s ease-in;
 }
 
-/* Titles */
+
 .main-title {
     font-family: 'Dancing Script', cursive;
     font-size: 4rem;
     color: #4a0e4e;
-    margin: 10px 0;
 }
 
 .main-title span {
@@ -54,14 +50,13 @@ body {
     font-size: 14px;
     color: #4a0e4e;
 }
-
-/* Buttons */
 .btn-group {
     margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    position: relative;
+    width: 100%;
+    height: 180px;
 }
+
 
 button {
     padding: 12px 35px;
@@ -70,28 +65,33 @@ button {
     border: none;
     cursor: pointer;
     font-weight: 600;
+    position: absolute;
 }
 
 #yes-btn {
-    background-color: #e91e63;
+    background: #e91e63;
     color: white;
     border: 2px solid white;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    z-index: 2;
 }
+
 
 #no-btn {
-    background-color: #fef1f2;
+    position: fixed;  /* free movement */
+    /* initial placement so it doesn't start in the corner */
+    left: calc(50% + 120px);
+    top: calc(50% + 20px);
+    background: #fef1f2;
     color: #333;
-    position: fixed; /* IMPORTANT: full screen floating */
-    transition: all 0.3s ease;
+    transition: left 0.25s ease, top 0.25s ease;
+    z-index: 10;
 }
 
-.hint-text {
-    margin-top: 18px;
-    font-size: 12px;
-    color: #4a0e4e;
-}
 
-/* Success Page */
+
 .hidden {
     display: none;
 }
@@ -118,7 +118,6 @@ button {
     background: #fff9f0;
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 @keyframes fadeIn {
